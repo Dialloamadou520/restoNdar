@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - RestoNdar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-fixed">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>RestoNdar</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-cart" id="cartToggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <h1>Notre Menu</h1>
+            <p>Découvrez notre sélection de plats préparés avec passion</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i> Tous
+                </button>
+                <button class="filter-btn" data-category="entrees">
+                    <i class="fas fa-leaf"></i> Entrées
+                </button>
+                <button class="filter-btn" data-category="plats">
+                    <i class="fas fa-drumstick-bite"></i> Plats
+                </button>
+                <button class="filter-btn" data-category="pizzas">
+                    <i class="fas fa-pizza-slice"></i> Pizzas
+                </button>
+                <button class="filter-btn" data-category="burgers">
+                    <i class="fas fa-hamburger"></i> Burgers
+                </button>
+                <button class="filter-btn" data-category="desserts">
+                    <i class="fas fa-ice-cream"></i> Desserts
+                </button>
+                <button class="filter-btn" data-category="boissons">
+                    <i class="fas fa-glass-cheers"></i> Boissons
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid" id="menuGrid">
+                <!-- Entrées -->
+                <div class="menu-item" data-category="entrees" data-id="1" data-name="Salade César" data-price="10.50" data-image="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=400" alt="Salade César">
+                        <span class="item-category">Entrée</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Salade César</h3>
+                        <p>Laitue romaine, croûtons, parmesan, sauce César maison</p>
+                        <div class="item-footer">
+                            <span class="item-price">10,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(1, 'Salade César', 10.50, 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="entrees" data-id="2" data-name="Soupe à l'Oignon" data-price="8.90" data-image="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400" alt="Soupe à l'Oignon">
+                        <span class="item-category">Entrée</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Soupe à l'Oignon</h3>
+                        <p>Oignons caramélisés, bouillon de bœuf, gruyère gratiné</p>
+                        <div class="item-footer">
+                            <span class="item-price">8,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(2, 'Soupe à l\'Oignon', 8.90, 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="entrees" data-id="3" data-name="Bruschetta" data-price="9.50" data-image="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400" alt="Bruschetta">
+                        <span class="item-category">Entrée</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Bruschetta</h3>
+                        <p>Pain grillé, tomates fraîches, basilic, huile d'olive</p>
+                        <div class="item-footer">
+                            <span class="item-price">9,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(3, 'Bruschetta', 9.50, 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plats -->
+                <div class="menu-item" data-category="plats" data-id="4" data-name="Poulet Rôti" data-price="18.90" data-image="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400" alt="Poulet Rôti">
+                        <span class="item-category">Plat</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Poulet Rôti</h3>
+                        <p>Poulet fermier, pommes de terre rissolées, jus de volaille</p>
+                        <div class="item-footer">
+                            <span class="item-price">18,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(4, 'Poulet Rôti', 18.90, 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="plats" data-id="5" data-name="Saumon Grillé" data-price="22.50" data-image="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400" alt="Saumon Grillé">
+                        <span class="item-category">Plat</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Saumon Grillé</h3>
+                        <p>Filet de saumon, légumes de saison, sauce citronnée</p>
+                        <div class="item-footer">
+                            <span class="item-price">22,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(5, 'Saumon Grillé', 22.50, 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="plats" data-id="6" data-name="Steak Frites" data-price="24.90" data-image="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400" alt="Steak Frites">
+                        <span class="item-category">Plat</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Steak Frites</h3>
+                        <p>Entrecôte de bœuf, frites maison, sauce au poivre</p>
+                        <div class="item-footer">
+                            <span class="item-price">24,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(6, 'Steak Frites', 24.90, 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="plats" data-id="7" data-name="Risotto aux Champignons" data-price="17.50" data-image="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400" alt="Risotto aux Champignons">
+                        <span class="item-category">Plat</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Risotto aux Champignons</h3>
+                        <p>Riz Arborio crémeux, cèpes, parmesan, truffe</p>
+                        <div class="item-footer">
+                            <span class="item-price">17,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(7, 'Risotto aux Champignons', 17.50, 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizzas -->
+                <div class="menu-item" data-category="pizzas" data-id="8" data-name="Pizza Margherita" data-price="14.90" data-image="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Pizza Margherita">
+                        <span class="item-category">Pizza</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Pizza Margherita</h3>
+                        <p>Sauce tomate, mozzarella, basilic frais, huile d'olive</p>
+                        <div class="item-footer">
+                            <span class="item-price">14,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(8, 'Pizza Margherita', 14.90, 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="pizzas" data-id="9" data-name="Pizza 4 Fromages" data-price="16.90" data-image="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza 4 Fromages">
+                        <span class="item-category">Pizza</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Pizza 4 Fromages</h3>
+                        <p>Mozzarella, gorgonzola, chèvre, parmesan</p>
+                        <div class="item-footer">
+                            <span class="item-price">16,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(9, 'Pizza 4 Fromages', 16.90, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="pizzas" data-id="10" data-name="Pizza Pepperoni" data-price="15.90" data-image="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400" alt="Pizza Pepperoni">
+                        <span class="item-category">Pizza</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Pizza Pepperoni</h3>
+                        <p>Sauce tomate, mozzarella, pepperoni épicé</p>
+                        <div class="item-footer">
+                            <span class="item-price">15,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(10, 'Pizza Pepperoni', 15.90, 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Burgers -->
+                <div class="menu-item" data-category="burgers" data-id="11" data-name="Burger Classic" data-price="14.50" data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Burger Classic">
+                        <span class="item-category">Burger</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Burger Classic</h3>
+                        <p>Steak haché, cheddar, salade, tomate, oignon</p>
+                        <div class="item-footer">
+                            <span class="item-price">14,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(11, 'Burger Classic', 14.50, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="burgers" data-id="12" data-name="Burger Gourmet" data-price="16.50" data-image="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400" alt="Burger Gourmet">
+                        <span class="item-category">Burger</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Burger Gourmet</h3>
+                        <p>Bœuf Angus, cheddar affiné, bacon, sauce maison</p>
+                        <div class="item-footer">
+                            <span class="item-price">16,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(12, 'Burger Gourmet', 16.50, 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="burgers" data-id="13" data-name="Burger Veggie" data-price="13.90" data-image="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=400" alt="Burger Veggie">
+                        <span class="item-category">Burger</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Burger Veggie</h3>
+                        <p>Galette de légumes, avocat, roquette, sauce yaourt</p>
+                        <div class="item-footer">
+                            <span class="item-price">13,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(13, 'Burger Veggie', 13.90, 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="menu-item" data-category="desserts" data-id="14" data-name="Tiramisu" data-price="7.90" data-image="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400" alt="Tiramisu">
+                        <span class="item-category">Dessert</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Tiramisu</h3>
+                        <p>Biscuits café, mascarpone, cacao</p>
+                        <div class="item-footer">
+                            <span class="item-price">7,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(14, 'Tiramisu', 7.90, 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts" data-id="15" data-name="Crème Brûlée" data-price="8.50" data-image="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=400" alt="Crème Brûlée">
+                        <span class="item-category">Dessert</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Crème Brûlée</h3>
+                        <p>Crème vanille, caramel croustillant</p>
+                        <div class="item-footer">
+                            <span class="item-price">8,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(15, 'Crème Brûlée', 8.50, 'https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts" data-id="16" data-name="Fondant au Chocolat" data-price="9.50" data-image="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400" alt="Fondant au Chocolat">
+                        <span class="item-category">Dessert</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Fondant au Chocolat</h3>
+                        <p>Cœur coulant, glace vanille, crème chantilly</p>
+                        <div class="item-footer">
+                            <span class="item-price">9,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(16, 'Fondant au Chocolat', 9.50, 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boissons -->
+                <div class="menu-item" data-category="boissons" data-id="17" data-name="Jus d'Orange Frais" data-price="4.50" data-image="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400" alt="Jus d'Orange Frais">
+                        <span class="item-category">Boisson</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Jus d'Orange Frais</h3>
+                        <p>100% oranges pressées</p>
+                        <div class="item-footer">
+                            <span class="item-price">4,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(17, 'Jus d\'Orange Frais', 4.50, 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="boissons" data-id="18" data-name="Limonade Maison" data-price="3.90" data-image="https://images.unsplash.com/photo-1556881286-fc6915169721?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=400" alt="Limonade Maison">
+                        <span class="item-category">Boisson</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Limonade Maison</h3>
+                        <p>Citrons frais, menthe, eau pétillante</p>
+                        <div class="item-footer">
+                            <span class="item-price">3,90 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(18, 'Limonade Maison', 3.90, 'https://images.unsplash.com/photo-1556881286-fc6915169721?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="boissons" data-id="19" data-name="Café Espresso" data-price="2.50" data-image="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400" alt="Café Espresso">
+                        <span class="item-category">Boisson</span>
+                    </div>
+                    <div class="item-content">
+                        <h3>Café Espresso</h3>
+                        <p>Café italien torréfié</p>
+                        <div class="item-footer">
+                            <span class="item-price">2,50 €</span>
+                            <button class="btn-add-cart" onclick="addToCart(19, 'Café Espresso', 2.50, 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400')">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2><i class="fas fa-shopping-cart"></i> Votre Panier</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be inserted here -->
+        </div>
+        <div class="cart-empty" id="cartEmpty">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Votre panier est vide</p>
+            <span>Ajoutez des plats pour commencer</span>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-subtotal">
+                <span>Sous-total</span>
+                <span id="cartSubtotal">0,00 €</span>
+            </div>
+            <div class="cart-delivery">
+                <span>Livraison</span>
+                <span id="deliveryFee">3,50 €</span>
+            </div>
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">0,00 €</span>
+            </div>
+            <button class="btn btn-primary btn-checkout" id="checkoutBtn">
+                <i class="fas fa-credit-card"></i> Passer la Commande
+            </button>
+        </div>
+    </aside>
+
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-clipboard-list"></i> Finaliser la Commande</h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="orderForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Informations Personnelles</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Prénom *</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nom *</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-truck"></i> Mode de Réception</h3>
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="deliveryType" value="delivery" checked>
+                                <span class="option-content">
+                                    <i class="fas fa-motorcycle"></i>
+                                    <span class="option-title">Livraison</span>
+                                    <span class="option-price">+3,50 €</span>
+                                </span>
+                            </label>
+                            <label class="delivery-option">
+                                <input type="radio" name="deliveryType" value="pickup">
+                                <span class="option-content">
+                                    <i class="fas fa-store"></i>
+                                    <span class="option-title">Retrait sur Place</span>
+                                    <span class="option-price">Gratuit</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section delivery-address" id="deliveryAddress">
+                        <h3><i class="fas fa-map-marker-alt"></i> Adresse de Livraison</h3>
+                        <div class="form-group">
+                            <label for="address">Adresse *</label>
+                            <input type="text" id="address" placeholder="Rue, numéro">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postalCode">Code Postal *</label>
+                                <input type="text" id="postalCode">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Ville *</label>
+                                <input type="text" id="city">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="instructions">Instructions (optionnel)</label>
+                            <textarea id="instructions" rows="2" placeholder="Code porte, étage, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-credit-card"></i> Paiement</h3>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentType" value="card" checked>
+                                <span class="option-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Carte Bancaire</span>
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentType" value="cash">
+                                <span class="option-content">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Espèces à la livraison</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <h3>Récapitulatif</h3>
+                        <div id="orderSummaryItems"></div>
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span>Sous-total</span>
+                                <span id="summarySubtotal">0,00 €</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Livraison</span>
+                                <span id="summaryDelivery">3,50 €</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="summaryTotal">0,00 €</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-confirm">
+                        <i class="fas fa-check"></i> Confirmer la Commande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Commande Confirmée !</h2>
+                <p>Merci pour votre commande. Vous recevrez un email de confirmation.</p>
+                <div class="order-number">
+                    <span>N° de commande:</span>
+                    <strong id="orderNumber">#12345</strong>
+                </div>
+                <div class="estimated-time">
+                    <i class="fas fa-clock"></i>
+                    <span>Temps estimé: <strong>30-45 min</strong></span>
+                </div>
+                <button class="btn btn-primary" onclick="closeSuccessModal()">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>RestoNdar</span>
+                    </a>
+                    <p>Votre restaurant préféré, accessible en un clic.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="index.html#about">À Propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="menu.html">Commande en Ligne</a></li>
+                        <li><a href="#">Livraison</a></li>
+                        <li><a href="#">Retrait sur Place</a></li>
+                        <li><a href="#">Réservation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RestoNdar. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

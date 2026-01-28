@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - RestoNdar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-fixed">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>RestoNdar</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.php" class="active">Menu</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-cart" id="cartToggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <h1>Notre Menu</h1>
+            <p>Découvrez notre sélection de plats préparés avec passion</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="filter-buttons" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i> Tous
+                </button>
+                <!-- Categories loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid" id="menuGrid">
+                <!-- Dishes loaded dynamically -->
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Chargement du menu...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2><i class="fas fa-shopping-cart"></i> Votre Panier</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Votre panier est vide</p>
+            <span>Ajoutez des plats pour commencer</span>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-subtotal">
+                <span>Sous-total</span>
+                <span id="cartSubtotal">0 FCFA</span>
+            </div>
+            <div class="cart-delivery">
+                <span>Livraison</span>
+                <span id="deliveryFee">1 000 FCFA</span>
+            </div>
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">0 FCFA</span>
+            </div>
+            <button class="btn btn-primary btn-checkout" id="checkoutBtn">
+                <i class="fas fa-credit-card"></i> Passer la Commande
+            </button>
+        </div>
+    </aside>
+
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-clipboard-list"></i> Finaliser la Commande</h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="orderForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Informations Personnelles</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Prénom *</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nom *</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-truck"></i> Mode de Réception</h3>
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="deliveryType" value="delivery" checked>
+                                <span class="option-content">
+                                    <i class="fas fa-motorcycle"></i>
+                                    <span class="option-title">🛵 Livraison</span>
+                                    <span class="option-price">+1 000 FCFA</span>
+                                </span>
+                            </label>
+                            <label class="delivery-option">
+                                <input type="radio" name="deliveryType" value="pickup">
+                                <span class="option-content">
+                                    <i class="fas fa-store"></i>
+                                    <span class="option-title">🏪 Retrait sur Place</span>
+                                    <span class="option-price">Gratuit</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section delivery-address" id="deliveryAddress">
+                        <h3><i class="fas fa-map-marker-alt"></i> Adresse de Livraison</h3>
+                        <div class="form-group">
+                            <label for="address">Adresse *</label>
+                            <input type="text" id="address" placeholder="Rue, numéro">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postalCode">Code Postal *</label>
+                                <input type="text" id="postalCode">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Ville *</label>
+                                <input type="text" id="city">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="instructions">Instructions (optionnel)</label>
+                            <textarea id="instructions" rows="2" placeholder="Code porte, étage, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-wallet"></i> Paiement</h3>
+                        <div class="payment-options payment-grid">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentType" value="wave" checked>
+                                <span class="option-content wave-option">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Wave_logo.svg/512px-Wave_logo.svg.png" alt="Wave" class="payment-logo">
+                                    <span>Wave</span>
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentType" value="orange_money">
+                                <span class="option-content om-option">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Orange_logo.svg/512px-Orange_logo.svg.png" alt="Orange Money" class="payment-logo">
+                                    <span>Orange Money</span>
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentType" value="cash">
+                                <span class="option-content">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Espèces à la livraison</span>
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentType" value="card">
+                                <span class="option-content">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Carte Bancaire</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <h3>Récapitulatif</h3>
+                        <div id="orderSummaryItems"></div>
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span>Sous-total</span>
+                                <span id="summarySubtotal">0 FCFA</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Livraison</span>
+                                <span id="summaryDelivery">1 000 FCFA</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="summaryTotal">0 FCFA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-confirm">
+                        <i class="fas fa-check"></i> Confirmer la Commande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Commande Confirmée !</h2>
+                <p>Merci pour votre commande.</p>
+                <div class="order-number">
+                    <span>N° de commande:</span>
+                    <strong id="orderNumber">#12345</strong>
+                </div>
+                <div class="estimated-time">
+                    <i class="fas fa-clock"></i>
+                    <span>Temps estimé: <strong>30-45 min</strong></span>
+                </div>
+                
+                <div class="confirmation-options">
+                    <p>Confirmer via :</p>
+                    <div class="confirmation-buttons">
+                        <a href="#" id="whatsappBtn" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="#" id="emailBtn" class="btn btn-email">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="closeSuccessModal()">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>RestoNdar</span>
+                    </a>
+                    <p>Votre restaurant préféré, accessible en un clic.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.php">Menu</a></li>
+                        <li><a href="index.html#about">À Propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="menu.php">Commande en Ligne</a></li>
+                        <li><a href="#">Livraison</a></li>
+                        <li><a href="#">Retrait sur Place</a></li>
+                        <li><a href="#">Réservation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RestoNdar. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>

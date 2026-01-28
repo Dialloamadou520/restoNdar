@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestoNdar - Restaurant & Commande en Ligne</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>RestoNdar</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="menu.php">Menu</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="menu.php" class="btn-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Bienvenue chez <span>RestoNdar</span></h1>
+            <p>Savourez l'excellence culinaire, commandée en quelques clics</p>
+            <div class="hero-buttons">
+                <a href="menu.php" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> Voir le Menu
+                </a>
+                <a href="menu.php" class="btn btn-secondary">
+                    <i class="fas fa-shopping-bag"></i> Commander Maintenant
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Pourquoi Commander Chez Nous ?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Gagnez du Temps</h3>
+                    <p>Commandez en ligne et évitez les files d'attente. Votre repas sera prêt à votre arrivée.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Évitez le Déplacement</h3>
+                    <p>Faites-vous livrer directement chez vous ou optez pour le retrait sur place.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Qualité Garantie</h3>
+                    <p>Des ingrédients frais et des recettes préparées avec passion par nos chefs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Prix Abordables</h3>
+                    <p>Des plats savoureux à des prix compétitifs, avec des offres spéciales régulières.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes Section -->
+    <section class="popular-dishes">
+        <div class="container">
+            <h2 class="section-title">Nos Plats Populaires</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400" alt="Poulet Yassa">
+                        <span class="dish-badge">Populaire</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Poulet Yassa</h3>
+                        <p>Poulet mariné aux oignons et citron, riz blanc</p>
+                        <div class="dish-footer">
+                            <span class="price">4 500 FCFA</span>
+                            <a href="menu.php" class="btn-add-preview">Voir Menu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400" alt="Thiéboudienne">
+                        <span class="dish-badge">Best-seller</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Thiéboudienne</h3>
+                        <p>Riz au poisson, légumes frais, sauce tomate</p>
+                        <div class="dish-footer">
+                            <span class="price">5 000 FCFA</span>
+                            <a href="menu.php" class="btn-add-preview">Voir Menu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400" alt="Mafé Bœuf">
+                        <span class="dish-badge">Nouveau</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Mafé Bœuf</h3>
+                        <p>Bœuf mijoté sauce arachide, riz blanc</p>
+                        <div class="dish-footer">
+                            <span class="price">5 500 FCFA</span>
+                            <a href="menu.php" class="btn-add-preview">Voir Menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dishes-cta">
+                <a href="menu.php" class="btn btn-primary btn-large">
+                    <i class="fas fa-book-open"></i> Découvrir Tout le Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Comment Ça Marche ?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Consultez le Menu</h3>
+                    <p>Parcourez notre sélection de plats délicieux</p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-cart-plus"></i>
+                    </div>
+                    <h3>Ajoutez au Panier</h3>
+                    <p>Sélectionnez vos plats préférés</p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Passez Commande</h3>
+                    <p>Confirmez et choisissez votre mode de livraison</p>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Régalez-vous !</h3>
+                    <p>Savourez votre repas sans bouger de chez vous</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>À Propos de RestoNdar</h2>
+                    <p>Depuis 2020, RestoNdar propose une expérience culinaire unique alliant tradition et modernité. Notre équipe passionnée s'engage à vous offrir des plats préparés avec des ingrédients frais et locaux.</p>
+                    <p>Notre service de commande en ligne vous permet de profiter de nos créations culinaires sans vous déplacer, tout en garantissant la même qualité que si vous étiez à notre table.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">5000+</span>
+                            <span class="stat-label">Clients Satisfaits</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Plats au Menu</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.8</span>
+                            <span class="stat-label">Note Moyenne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Notre Restaurant">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-Nous</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Saint-Louis, Sénégal</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+221 77 352 53 82</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@restondar.sn</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horaires</h4>
+                            <p>Lun - Dim: 11h00 - 23h00</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Votre message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Envoyer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>RestoNdar</span>
+                    </a>
+                    <p>Votre restaurant préféré, accessible en un clic.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="menu.php">Menu</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="menu.php">Commande en Ligne</a></li>
+                        <li><a href="#">Livraison</a></li>
+                        <li><a href="#">Retrait sur Place</a></li>
+                        <li><a href="#">Réservation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RestoNdar. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
